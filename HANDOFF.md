@@ -7,6 +7,10 @@ Proyecto personal de Donovan Zuñiga (desarrollador y dueño del sitio): su port
 ## Qué se hizo recientemente
 
 - Bootstrap del proyecto desde el template del skill `new-project`.
+- <code>28c322a</code> chore: bootstrap desde el template de new-project
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+
+Archivos modificados en ese rango:
 
 ## Trabajo en progreso (sin commitear)
 
