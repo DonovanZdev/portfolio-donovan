@@ -11,6 +11,15 @@ Proyecto personal de Donovan Zuñiga (desarrollador y dueño del sitio): su port
 - Decisión de hosting: Cloudflare **Workers con Static Assets** (no Pages). Se probó vinext y se descartó: `/blog/[slug]` daba 500 en Workers por `useMDXComponent` (usa `new Function`); ver `TRAMPAS.md`. Cuenta de Cloudflare con login en `wrangler` (una sola cuenta).
 - Template `dillionverma/portfolio@5ef12e4` importado (commit `6500c12`) con Next 16.2.12 y React 19.2.8 (parches de seguridad de mayo 2026).
 - Sitio convertido a export estático: `output: "export"`, headers en `public/_headers`, paginación del blog por ruta (`/blog/page/N`), imágenes OG estáticas con fuentes leídas de disco, `wrangler.jsonc` solo con `assets` (`./out`). Verificado: build con 0, 3 y 7 posts, `wrangler dev` con todas las rutas en 200, `tsc` y `eslint` limpios.
+- 90c953a docs: limpiar HANDOFF tras el primer run del bot y registrar decisiones
+- 6500c12 feat: importar template Portfolio de Magic UI
+- c6aa660 feat: export estático para Cloudflare Workers Static Assets
+vinext se descartó: /blog/[slug] falla en Workers porque useMDXComponent usa new Function. Se pasa a output: "export" servido con wrangler (solo assets).
+headers de seguridad y Content-Type de OG en public/_headers
+paginación del blog por ruta (/blog/page/N) en vez de searchParams
+imágenes OG estáticas con fuentes leídas de disco
+generateStaticParams nunca vacío (verificado con 0, 3 y 7 posts)
+docs: decisión de hosting y trampas nuevas
 
 ## Trabajo en progreso (sin commitear)
 
