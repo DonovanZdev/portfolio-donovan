@@ -21,7 +21,7 @@ Nada.
 ## Lo que sigue
 
 1. **Revisar los 5 artículos** de `content/` (son borradores): ajustar tono y agregar detalles que solo Donovan conoce. Ninguno lleva datos de clientes; mantenerlo así (repo público).
-2. Apagar el Worker viejo (`npx wrangler delete --name portfolio-donovan`) cuando Donovan confirme la URL de Pages. Opcional: dominio propio (entonces actualizar `DATA.url` en `src/data/resume.tsx` y redesplegar).
+2. Opcional: dominio propio (entonces actualizar `DATA.url` en `src/data/resume.tsx` y redesplegar con `pnpm run deploy`).
 3. Agregar experiencia/estudios si Donovan quiere esas secciones, capturas **anonimizadas** de los casos y, más adelante, dominio propio.
 
 ### Notas vivas
@@ -32,7 +32,7 @@ Nada.
 - pnpm 12.4.2 instalado con `npm i -g pnpm` el 2026-09-18; el template trae `pnpm-lock.yaml`. Scripts: `pnpm build`, `pnpm preview` (local en :8787), `pnpm deploy`.
 - Dominio propio: pendiente, se conecta después del primer deploy en `*.workers.dev`.
 - Contacto público (decidido por Donovan): correo de Gmail y WhatsApp, definidos en `src/data/resume.tsx`. No hay GitHub/LinkedIn en el sitio.
-- Sitio en vivo: https://portfolio-donovan.pages.dev (proyecto Pages `portfolio-donovan`). Desplegar: `pnpm run deploy`. Pendiente de apagar: el Worker viejo `portfolio-donovan` en `portfolio-donovan.donovanadrianpro.workers.dev` (esperando que Donovan confirme que la URL de Pages le sirve).
+- Sitio en vivo: https://portfolio-donovan.pages.dev (proyecto Pages `portfolio-donovan`). Desplegar: `pnpm run deploy`. El Worker viejo de `workers.dev` ya fue borrado por Donovan (verificado el 2026-09-18).
 - La foto original (con EXIF) está solo en `_privado/foto-original.jpeg`, ignorada por git.
 
 ## Cómo retomar en otra cuenta/máquina
