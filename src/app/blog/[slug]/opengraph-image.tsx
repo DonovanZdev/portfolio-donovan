@@ -1,10 +1,13 @@
  
 
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { allPosts } from "content-collections";
 import { DATA } from "@/data/resume";
 
-export const runtime = "edge";
+
+export const dynamic = "force-static";
 
 export const alt = "Blog Post";
 export const size = {
@@ -13,21 +16,19 @@ export const size = {
 };
 export const contentType = "image/png";
 
+export function generateStaticParams() {
+    const slugs = allPosts.map((post) => ({
+        slug: post._meta.path.replace(/\.mdx$/, ""),
+    }));
+    // Con output: "export" Next exige al menos un param; sin posts, "_" usa el fallback de la imagen.
+    return slugs.length > 0 ? slugs : [{ slug: "_" }];
+}
+
 const getFontData = async () => {
     try {
         const [cabinetGrotesk, clashDisplay] = await Promise.all([
-            fetch(
-                new URL(
-                    "../../../../public/fonts/CabinetGrotesk-Medium.ttf",
-                    import.meta.url
-                )
-            ).then((res) => res.arrayBuffer()),
-            fetch(
-                new URL(
-                    "../../../../public/fonts/ClashDisplay-Semibold.ttf",
-                    import.meta.url
-                )
-            ).then((res) => res.arrayBuffer()),
+            readFile(join(process.cwd(), "public", "fonts", "CabinetGrotesk-Medium.ttf")),
+            readFile(join(process.cwd(), "public", "fonts", "ClashDisplay-Semibold.ttf")),
         ]);
         return { cabinetGrotesk, clashDisplay };
     } catch (error) {

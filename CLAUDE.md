@@ -13,9 +13,10 @@ Portafolio web personal de Donovan Zuñiga (automatización de procesos y sistem
 ## Stack
 
 - **Base:** Next.js 16 + React 19 + TypeScript + Tailwind CSS 4 + shadcn/ui + Magic UI + `motion`. Blog con `content-collections` (MDX en `content/`). El template trae `pnpm-lock.yaml`.
-- **Hosting:** Cloudflare Workers. La doc oficial (actualizada 2026-08-25) recomienda **vinext** (plugin de Vite que reimplementa la API de Next; beta) en lugar de OpenNext para apps Next.js nuevas, y deja Pages solo para exports estáticos. Camino: `npx vinext check` → `npx vinext init` (target Workers) → `npx @vinext/cloudflare deploy`.
-- **Plan B si `vinext check` marca incompatibilidades:** export estático (`output: "export"`, el portafolio es casi todo estático) servido con Workers Static Assets, o el adaptador OpenNext (documentado como camino de mantenimiento).
-- **Seguridad:** el template fija `next 16.1.1`. Cloudflare avisó (2026-05-06) de vulnerabilidades corregidas en Next `16.2.5` y React `19.2.6`. Subir a esas versiones o mayores **antes del primer deploy**.
+- **Hosting:** Cloudflare **Workers con Static Assets** (no Pages; Cloudflare lo recomienda para Next.js y deja Pages para exports estáticos). El sitio es un **export estático** (`output: "export"`): `next build` genera `./out` y `wrangler deploy` lo sube (`wrangler.jsonc`, solo `assets`, sin código de servidor). Los headers de seguridad y el `Content-Type` de las imágenes OG viven en `public/_headers`.
+- **Por qué no vinext:** se probó `vinext` (beta; la doc oficial de Cloudflare lo recomienda para Next.js en modo servidor) y el build funciona, pero `/blog/[slug]` falla en Workers porque `useMDXComponent` usa `new Function` (ver `TRAMPAS.md`). Un portafolio es casi todo estático, así que el export es más simple, más rápido y sin dependencia beta. Si algún día hace falta servidor, retomar vinext u OpenNext.
+- **Scripts:** `pnpm dev` (desarrollo), `pnpm build` (genera `./out`), `pnpm preview` (build + `wrangler dev` local en :8787), `pnpm deploy` (build + `wrangler deploy`).
+- **Seguridad:** el template fija `next 16.1.1`. Cloudflare avisó (2026-05-06) de vulnerabilidades corregidas en Next `16.2.5` y React `19.2.6`. Ya subido a Next `16.2.12` y React `19.2.8` (fijo, sin `^`).
 
 ## Reglas
 
@@ -27,7 +28,7 @@ Portafolio web personal de Donovan Zuñiga (automatización de procesos y sistem
 
 ## Estado actual
 
-Fase: **arranque**. Carpeta con bootstrap del sistema de continuidad (docs + bot auto-handoff). Aún no se importa el template de Magic UI ni hay deploy.
+Fase: **arranque**. Template de Magic UI importado y compilando como export estático (22 páginas; verificado con `wrangler dev` y con 0, 3 y 7 posts). Todavía con el contenido de ejemplo de Dillion Verma y **sin desplegar**.
 
 ## Docs
 

@@ -18,9 +18,11 @@ function getSortedPosts() {
 }
 
 export async function generateStaticParams() {
-  return allPosts.map((post) => ({
+  const slugs = allPosts.map((post) => ({
     slug: post._meta.path.replace(/\.mdx$/, ""),
   }));
+  // Con output: "export" Next exige al menos un param; sin posts, "_" cae en notFound().
+  return slugs.length > 0 ? slugs : [{ slug: "_" }];
 }
 
 export async function generateMetadata({
