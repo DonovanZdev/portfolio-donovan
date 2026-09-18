@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { DATA } from "@/data/resume";
+import { getAvatarDataUri } from "@/lib/og-avatar";
 
 
 export const dynamic = "force-static";
@@ -107,9 +108,7 @@ const styles = {
 export default async function Image() {
     try {
         const fontData = await getFontData();
-        const imageUrl = DATA.avatarUrl
-            ? new URL(DATA.avatarUrl, DATA.url).toString()
-            : undefined;
+        const imageUrl = await getAvatarDataUri();
 
         return new ImageResponse(
             (

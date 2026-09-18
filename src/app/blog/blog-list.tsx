@@ -34,9 +34,9 @@ export function BlogList({ page }: { page: number }) {
   return (
     <section id="blog">
       <BlurFade delay={BLUR_FADE_DELAY}>
-        <h1 className="text-2xl font-semibold tracking-tight mb-2">Blog <span className="ml-1 bg-card border border-border rounded-md px-2 py-1 text-muted-foreground text-sm">{sortedPosts.length} posts</span></h1>
+        <h1 className="text-2xl font-semibold tracking-tight mb-2">Blog <span className="ml-1 bg-card border border-border rounded-md px-2 py-1 text-muted-foreground text-sm">{sortedPosts.length} artículos</span></h1>
         <p className="text-sm text-muted-foreground mb-8">
-          My thoughts on software development, life, and more.
+          Cómo automatizo procesos de negocio: casos, decisiones y lo aprendido en producción.
         </p>
       </BlurFade>
 
@@ -82,7 +82,7 @@ export function BlogList({ page }: { page: number }) {
             <BlurFade delay={BLUR_FADE_DELAY * 4}>
               <div className="flex gap-3 flex-row items-center justify-between mt-8">
                 <div className="text-sm text-muted-foreground">
-                  Page {pagination.page} of {pagination.totalPages}
+                  Página {pagination.page} de {pagination.totalPages}
                 </div>
                 <div className="flex gap-2 sm:justify-end">
                   {pagination.hasPreviousPage ? (
@@ -90,11 +90,11 @@ export function BlogList({ page }: { page: number }) {
                       href={pageHref(pagination.page - 1)}
                       className="h-8 w-fit px-2 flex items-center justify-center text-sm border border-border rounded-lg hover:bg-accent/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     >
-                      Previous
+                      Anterior
                     </Link>
                   ) : (
                     <span className="h-8 w-fit px-2 flex items-center justify-center text-sm border border-border rounded-lg opacity-50 cursor-not-allowed">
-                      Previous
+                      Anterior
                     </span>
                   )}
                   {pagination.hasNextPage ? (
@@ -102,11 +102,11 @@ export function BlogList({ page }: { page: number }) {
                       href={pageHref(pagination.page + 1)}
                       className="h-8 w-fit px-2 flex items-center justify-center text-sm border border-border rounded-lg hover:bg-accent/50 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                     >
-                      Next
+                      Siguiente
                     </Link>
                   ) : (
                     <span className="h-8 w-fit px-2 flex items-center justify-center text-sm border border-border rounded-lg opacity-50 cursor-not-allowed">
-                      Next
+                      Siguiente
                     </span>
                   )}
                 </div>
@@ -118,7 +118,7 @@ export function BlogList({ page }: { page: number }) {
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <div className="flex flex-col items-center justify-center py-12 px-4 border border-border rounded-xl">
             <p className="text-muted-foreground text-center">
-              No blog posts yet. Check back soon!
+              Todavía no hay artículos. ¡Vuelve pronto!
             </p>
           </div>
         </BlurFade>

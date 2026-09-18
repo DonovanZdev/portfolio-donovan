@@ -17,7 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { page } = await params;
   return {
-    title: `Blog - Page ${page}`,
+    title: `Blog - Página ${page}`,
     robots: Number(page) > getTotalPages() ? { index: false } : undefined,
   };
 }

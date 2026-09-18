@@ -125,9 +125,9 @@ export default async function Blog({
         }}
       />
       <div className="flex justify-start gap-4 items-center">
-        <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors border border-border rounded-lg px-2 py-1 inline-flex items-center gap-1 mb-6 group" aria-label="Back to Blog">
+        <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors border border-border rounded-lg px-2 py-1 inline-flex items-center gap-1 mb-6 group" aria-label="Volver al blog">
           <ChevronLeft className="size-3 group-hover:-translate-x-px transition-transform" />
-          Back to Blog
+          Volver al blog
         </Link>
       </div>
       <div className="flex flex-col gap-4">
@@ -162,7 +162,7 @@ export default async function Blog({
             >
               <span className="flex items-center gap-1 text-xs text-muted-foreground">
                 <ChevronLeft className="size-3" />
-                Previous
+                Anterior
               </span>
               <span className="text-sm font-medium group-hover:text-foreground transition-colors whitespace-normal wrap-break-word">
                 {previousPost.title}
@@ -178,7 +178,7 @@ export default async function Blog({
               className="group flex-1 flex flex-col gap-1 p-4 rounded-lg border border-border hover:bg-accent/50 transition-colors text-right"
             >
               <span className="flex items-center justify-end gap-1 text-xs text-muted-foreground">
-                Next
+                Siguiente
                 <ChevronRight className="size-3" />
               </span>
               <span className="text-sm font-medium group-hover:text-foreground transition-colors whitespace-normal wrap-break-word">

@@ -6,6 +6,7 @@ Portafolio web personal de Donovan Zuñiga (automatización de procesos y sistem
 
 - **Quién es quién:** proyecto personal de Donovan (desarrollador) y a la vez su propio "cliente". No es parte del ecosistema Nexai (no comparte PocketBase/n8n/Gotenberg ni usa subdominio `nexai.mx`).
 - **Base visual:** template "Portfolio" de Magic UI (`github.com/dillionverma/portfolio`, licencia MIT). Secciones: Hero, About, Work, Education, Projects, Hackathons, Contact y Blog (MDX).
+- **Contenido:** todo en español (México). Datos del sitio y de los casos en `src/data/resume.tsx`; artículos en `content/*.mdx` (borradores redactados a partir del PDF, sin cifras ni herramientas que el PDF no mencione; Donovan debe revisarlos). La foto original está en `_privado/foto-original.jpeg` (tiene EXIF); el sitio usa `public/me.jpg` (recorte sin EXIF).
 - **Fuente de contenido:** `Portafolio-Automatizaciones-Donovan.pdf` en la raíz (solo local, ignorado por git). Resume casos reales: dashboards en tiempo real, ventas→pagos, cotización→cobranza y flujos de muchas ramas; cifras: 150+ workflows en producción, 3 servidores propios, 8+ empresas atendidas.
 - **Restricción clave:** el repo es **público** y el PDF trae capturas con datos reales de clientes (nombres de empresas, folios, montos). Nada de eso se publica tal cual en el sitio.
 - **Despliegue:** cuenta propia de Cloudflare, primero en `*.workers.dev`; el dominio propio se conecta después.
@@ -28,7 +29,7 @@ Portafolio web personal de Donovan Zuñiga (automatización de procesos y sistem
 
 ## Estado actual
 
-Fase: **arranque**. Template de Magic UI importado y compilando como export estático (22 páginas; verificado con `wrangler dev` y con 0, 3 y 7 posts). Todavía con el contenido de ejemplo de Dillion Verma y **sin desplegar**.
+Fase: **contenido cargado, listo para desplegar**. El sitio ya tiene el contenido de Donovan (hero con foto, sobre mí con cifras, stack, 5 casos, contacto por WhatsApp y correo) y un blog con 5 artículos en español, uno por caso. Compila como export estático (18 páginas), verificado con `wrangler dev` en escritorio y celular. **Sin desplegar todavía.** Se quitaron las secciones Work, Education y Hackathons porque el PDF no trae esos datos: agregarlas cuando Donovan los dé (había un `WorkSection`/`HackathonsSection` en el template; recuperables con `git show 6500c12:src/components/section/work-section.tsx`).
 
 ## Docs
 

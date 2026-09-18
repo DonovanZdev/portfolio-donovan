@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { allPosts } from "content-collections";
-import { DATA } from "@/data/resume";
+import { getAvatarDataUri } from "@/lib/og-avatar";
 
 
 export const dynamic = "force-static";
@@ -131,9 +131,7 @@ export default async function Image({
         const fontData = await getFontData();
         const { slug } = await params;
         const post = allPosts.find((p) => p._meta.path.replace(/\.mdx$/, "") === slug);
-        const imageUrl = DATA.avatarUrl
-            ? new URL(DATA.avatarUrl, DATA.url).toString()
-            : undefined;
+        const imageUrl = await getAvatarDataUri();
 
         if (!post) {
             return new ImageResponse(
@@ -147,7 +145,7 @@ export default async function Image({
                                     </div>
                                 )}
                                 <div style={styles.mainContainer}>
-                                    <div style={styles.title}>Post Not Found</div>
+                                    <div style={styles.title}>Artículo no encontrado</div>
                                 </div>
                             </div>
                         </div>

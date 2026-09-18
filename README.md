@@ -1,47 +1,28 @@
-<div align="center">
-<img alt="Portfolio" src="https://github.com/dillionverma/portfolio/assets/16860528/57ffca81-3f0a-4425-b31d-094f61725455" width="90%">
-</div>
+# Portafolio de Donovan Zuñiga
 
-# Portfolio [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdillionverma%2Fportfolio)
+Sitio personal de **Donovan Zuñiga** — automatización de procesos y sistemas a la medida.
+Casos reales de automatización con n8n, Google Sheets, bases de datos, correo e IA supervisada.
 
-Built with next.js, [shadcn/ui](https://ui.shadcn.com/), and [magic ui](https://magicui.design/), deployed on Vercel.
+## Stack
 
-# Features
+- Next.js 16 (export estático) + React 19 + TypeScript
+- Tailwind CSS 4, shadcn/ui, Magic UI y `motion`
+- Blog en MDX con `content-collections` (`content/`)
+- Cloudflare Workers con Static Assets (`wrangler.jsonc`)
 
-- Setup only takes a few minutes by editing the [single config file](./src/data/resume.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/UI, TailwindCSS, Framer Motion, Magic UI
-- Includes a blog
-- Responsive for different devices
-- Optimized for Next.js and Vercel
+## Desarrollo
 
-# Getting Started Locally
+```bash
+pnpm install
+pnpm dev        # desarrollo en http://localhost:3000
+pnpm build      # genera el sitio estático en ./out
+pnpm preview    # build + wrangler dev (http://localhost:8787)
+pnpm deploy     # build + wrangler deploy
+```
 
-1. Clone this repository to your local machine:
+El contenido vive en `src/data/resume.tsx` (datos del sitio y casos) y `content/*.mdx` (artículos).
 
-   ```bash
-   git clone https://github.com/dillionverma/portfolio
-   ```
+## Créditos y licencia
 
-2. Move to the cloned directory
-
-   ```bash
-   cd portfolio
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   pnpm install
-   ```
-
-4. Start the local Server:
-
-   ```bash
-   pnpm dev
-   ```
-
-5. Open the [Config file](./src/data/resume.tsx) and make changes
-
-# License
-
-Licensed under the [MIT license](https://github.com/dillionverma/portfolio/blob/main/LICENSE.md).
+Basado en el template [Portfolio](https://github.com/dillionverma/portfolio) de Dillion Verma
+([Magic UI](https://magicui.design)), licencia MIT. El aviso de copyright original se conserva en `LICENSE`.

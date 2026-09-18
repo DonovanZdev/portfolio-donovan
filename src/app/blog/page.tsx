@@ -3,15 +3,15 @@ import { BlogList } from "./blog-list";
 
 export const metadata: Metadata = {
   title: "Blog",
-  description: "Thoughts on software development, life, and more.",
+  description: "Casos y aprendizajes sobre automatización de procesos de negocio.",
   openGraph: {
     title: "Blog",
-    description: "Thoughts on software development, life, and more.",
+    description: "Casos y aprendizajes sobre automatización de procesos de negocio.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog",
-    description: "Thoughts on software development, life, and more.",
+    description: "Casos y aprendizajes sobre automatización de procesos de negocio.",
   },
 };
 

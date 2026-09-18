@@ -2,7 +2,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { DATA } from "@/data/resume";
+import { getAvatarDataUri } from "@/lib/og-avatar";
 
 
 export const dynamic = "force-static";
@@ -108,10 +108,8 @@ export default async function Image() {
     try {
         const fontData = await getFontData();
         const title = "Blog";
-        const description = "Thoughts on software development, life, and more.";
-        const imageUrl = DATA.avatarUrl
-            ? new URL(DATA.avatarUrl, DATA.url).toString()
-            : undefined;
+        const description = "Casos y aprendizajes sobre automatización de procesos de negocio.";
+        const imageUrl = await getAvatarDataUri();
 
         return new ImageResponse(
             (
