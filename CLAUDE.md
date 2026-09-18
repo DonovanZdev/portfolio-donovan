@@ -9,7 +9,7 @@ Portafolio web personal de Donovan Zuñiga (automatización de procesos y sistem
 - **Contenido:** todo en español (México). Datos del sitio y de los casos en `src/data/resume.tsx`; artículos en `content/*.mdx` (borradores redactados a partir del PDF, sin cifras ni herramientas que el PDF no mencione; Donovan debe revisarlos). La foto original está en `_privado/foto-original.jpeg` (tiene EXIF); el sitio usa `public/me.jpg` (recorte sin EXIF).
 - **Fuente de contenido:** `Portafolio-Automatizaciones-Donovan.pdf` en la raíz (solo local, ignorado por git). Resume casos reales: dashboards en tiempo real, ventas→pagos, cotización→cobranza y flujos de muchas ramas; cifras: 150+ workflows en producción, 3 servidores propios, 8+ empresas atendidas.
 - **Restricción clave:** el repo es **público** y el PDF trae capturas con datos reales de clientes (nombres de empresas, folios, montos). Nada de eso se publica tal cual en el sitio.
-- **Despliegue:** cuenta propia de Cloudflare, primero en `*.workers.dev`; el dominio propio se conecta después.
+- **Despliegue:** cuenta propia de Cloudflare, en Pages: https://portfolio-donovan.pages.dev. Dominio propio: opcional, más adelante.
 
 ## Stack
 
