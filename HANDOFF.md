@@ -22,15 +22,16 @@ Nada.
 
 1. **Revisar los 5 artículos** de `content/` (son borradores): ajustar tono y agregar detalles que solo Donovan conoce. Ninguno lleva datos de clientes; mantenerlo así (repo público).
 2. Opcional: dominio propio (entonces actualizar `DATA.url` en `src/data/resume.tsx` y redesplegar con `pnpm run deploy`).
-3. Agregar experiencia/estudios si Donovan quiere esas secciones, capturas **anonimizadas** de los casos y, más adelante, dominio propio.
+3. Agregar experiencia/estudios si Donovan quiere esas secciones, y capturas **anonimizadas** de los casos (las del PDF traen nombres de clientes y montos reales).
 
 ### Notas vivas
 
 - Repo público: `DonovanZdev/portfolio-donovan`.
 - El bot pega commits crudos en "Qué se hizo recientemente" (con `<code>`, trailers `Co-Authored-By` y encabezados huérfanos): revisar y limpiar a mano tras cada push.
 - `Portafolio-Automatizaciones-Donovan.pdf` vive solo en local (ignorado por git).
-- pnpm 12.4.2 instalado con `npm i -g pnpm` el 2026-09-18; el template trae `pnpm-lock.yaml`. Scripts: `pnpm build`, `pnpm preview` (local en :8787), `pnpm deploy`.
-- Dominio propio: pendiente, se conecta después del primer deploy en `*.workers.dev`.
+- pnpm 12.4.2 instalado con `npm i -g pnpm` el 2026-09-18; el template trae `pnpm-lock.yaml`. Scripts: `pnpm build`, `pnpm preview` (build + `wrangler pages dev`), `pnpm run deploy` (con `run`: `pnpm deploy` es otro comando y falla).
+- Dominio propio: opcional; hoy el sitio vive en `pages.dev` (en Workers la URL habría llevado el subdominio de la cuenta, `donovanadrianpro`; ver `TRAMPAS.md`).
+- **Origen del contenido de los artículos:** cifras, stack, nombres de los casos y sus pasos salen del PDF. Es interpretación mía (validar con Donovan): el hilo narrativo y las frases de contexto (ej. "cuadrar caja suele significar cruzar hojas de cálculo"), los pasos del recordatorio diario (inferidos de los nombres de nodos del diagrama), la idea de "tres piezas del mismo proceso" (en el PDF son tres pies de foto) y la descripción del cotizador. `publishedAt` de los 5 es la fecha de creación (2026-09-18), no de redacción real.
 - Contacto público (decidido por Donovan): correo de Gmail y WhatsApp, definidos en `src/data/resume.tsx`. No hay GitHub/LinkedIn en el sitio.
 - Sitio en vivo: https://portfolio-donovan.pages.dev (proyecto Pages `portfolio-donovan`). Desplegar: `pnpm run deploy`. El Worker viejo de `workers.dev` ya fue borrado por Donovan (verificado el 2026-09-18).
 - La foto original (con EXIF) está solo en `_privado/foto-original.jpeg`, ignorada por git.
