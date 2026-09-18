@@ -1,10 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "portfolio-donovan",
-  "compatibility_date": "2026-09-18",
-  // Sitio estático: Workers Static Assets sirve el export de Next (./out), sin código de servidor.
-  "assets": {
-    "directory": "./out",
-    "not_found_handling": "404-page"
-  }
+  // Sitio estático: Cloudflare Pages sirve el export de Next (./out). URL: portfolio-donovan.pages.dev
+  "pages_build_output_dir": "./out",
+  "compatibility_date": "2026-09-18"
 }

@@ -11,8 +11,8 @@
     "start": "next start",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "preview": "next build && wrangler dev",
-    "deploy": "next build && wrangler deploy"
+    "preview": "next build && wrangler pages dev",
+    "deploy": "next build && wrangler pages deploy --branch main --commit-dirty=true"
   },
   "dependencies": {
     "@content-collections/mdx": "^0.2.2",

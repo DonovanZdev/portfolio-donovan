@@ -7,8 +7,8 @@ const WHATSAPP = "525561208661";
 export const DATA = {
   name: "Donovan Zuñiga",
   initials: "DZ",
-  // Ajustar al dominio real después del primer deploy (se usa en metadatos y enlaces absolutos).
-  url: "https://portfolio-donovan.workers.dev",
+  // URL pública (metadatos y enlaces absolutos). Actualizar si se conecta un dominio propio.
+  url: "https://portfolio-donovan.pages.dev",
   description:
     "Automatización de procesos y sistemas a la medida, para que tu negocio deje de depender de hacer las cosas a mano.",
   summary: `Ayudo a negocios a dejar de depender de una persona haciendo las cosas a mano. Construyo automatizaciones con n8n, Google Sheets, bases de datos, correo automatizado e IA supervisada: cotizaciones que se aprueban solas, pagos que se concilian sin tocarlos y dashboards que se actualizan solos.

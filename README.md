@@ -8,7 +8,7 @@ Casos reales de automatización con n8n, Google Sheets, bases de datos, correo e
 - Next.js 16 (export estático) + React 19 + TypeScript
 - Tailwind CSS 4, shadcn/ui, Magic UI y `motion`
 - Blog en MDX con `content-collections` (`content/`)
-- Cloudflare Workers con Static Assets (`wrangler.jsonc`)
+- Cloudflare Pages (`wrangler.jsonc`), en https://portfolio-donovan.pages.dev
 
 ## Desarrollo
 
@@ -16,8 +16,8 @@ Casos reales de automatización con n8n, Google Sheets, bases de datos, correo e
 pnpm install
 pnpm dev        # desarrollo en http://localhost:3000
 pnpm build      # genera el sitio estático en ./out
-pnpm preview    # build + wrangler dev (http://localhost:8787)
-pnpm deploy     # build + wrangler deploy
+pnpm preview    # build + wrangler pages dev
+pnpm run deploy     # build + wrangler pages deploy
 ```
 
 El contenido vive en `src/data/resume.tsx` (datos del sitio y casos) y `content/*.mdx` (artículos).
