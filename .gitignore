@@ -48,3 +48,13 @@ pnpm-debug.log*
 
 # Mockups temporales de superpowers
 .superpowers/
+
+# next / build (fusionado del template de Magic UI)
+/coverage
+/out/
+/build
+*.pem
+*.tsbuildinfo
+yarn-error.log*
+.vercel
+!.env.example
