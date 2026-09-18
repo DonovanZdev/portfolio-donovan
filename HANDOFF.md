@@ -2,7 +2,7 @@
 
 ## En una línea
 
-Proyecto personal de Donovan Zuñiga: portafolio web sobre el template Portfolio de Magic UI, para publicarlo en Cloudflare Workers. Contenido de Donovan ya cargado (hero, sobre mí, stack, 5 casos, contacto y 5 artículos en español); compila como export estático (18 páginas, probado con `wrangler dev` en escritorio y celular). Falta el primer deploy.
+Proyecto personal de Donovan Zuñiga (desarrollador y dueño del sitio): su portafolio web sobre el template Portfolio de Magic UI, para publicarlo en Cloudflare Workers. Contenido de Donovan ya cargado (hero, sobre mí, stack, 5 casos, contacto y 5 artículos en español); compila como export estático (18 páginas, probado con `wrangler dev` en escritorio y celular). Falta el primer deploy.
 
 ## Qué se hizo recientemente
 
@@ -11,16 +11,8 @@ Proyecto personal de Donovan Zuñiga: portafolio web sobre el template Portfolio
 - Decisión de hosting: Cloudflare **Workers con Static Assets** (no Pages). Se probó vinext y se descartó: `/blog/[slug]` daba 500 en Workers por `useMDXComponent` (usa `new Function`); ver `TRAMPAS.md`. Cuenta de Cloudflare con login en `wrangler` (una sola cuenta).
 - Template `dillionverma/portfolio@5ef12e4` importado (commit `6500c12`) con Next 16.2.12 y React 19.2.8 (parches de seguridad de mayo 2026).
 - Sitio convertido a export estático: `output: "export"`, headers en `public/_headers`, paginación del blog por ruta (`/blog/page/N`), imágenes OG estáticas con fuentes leídas de disco, `wrangler.jsonc` solo con `assets` (`./out`). Verificado: build con 0, 3 y 7 posts, `wrangler dev` con todas las rutas en 200, `tsc` y `eslint` limpios.
-- Contenido de Donovan cargado: foto (recorte sin EXIF), textos en español, cifras del PDF, stack, 5 casos con enlace a su artículo, contacto por WhatsApp y correo. Blog: 7 posts de ejemplo reemplazados por 5 artículos (borradores hechos solo con lo que dice el PDF). Se quitaron Work, Education y Hackathons (el PDF no trae esos datos). Imágenes OG con avatar embebido.
 
-- <code>841999a</code> docs: quitar commits crudos que pegó el bot en HANDOFF
-- <code>6e76f66</code> feat: contenido de Donovan en español (casos, blog, contacto)
-- Reemplaza el contenido de ejemplo del template por el de Donovan: foto, sobre mí con cifras, stack, 5 casos y contacto por WhatsApp y correo.
-- Blog: 5 artículos (uno por caso) en lugar de los 7 de ejemplo.
-- Quita Work, Education y Hackathons (el PDF no trae esos datos).
-- UI en español; tarjetas de casos sin imagen; fechas es-MX.
-- OG: el avatar se lee del disco en el build (sin depender de DATA.url).
-- Docs: estado, pendientes y trampas nuevas.
+- Contenido de Donovan cargado: foto (recorte sin EXIF), textos en español, cifras del PDF, stack, 5 casos con enlace a su artículo, contacto por WhatsApp y correo. Blog: 7 posts de ejemplo reemplazados por 5 artículos (borradores hechos solo con lo que dice el PDF). Se quitaron Work, Education y Hackathons (el PDF no trae esos datos). Imágenes OG con avatar embebido.
 
 ## Trabajo en progreso (sin commitear)
 
