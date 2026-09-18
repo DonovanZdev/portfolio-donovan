@@ -1,0 +1,50 @@
+# === Datos de cliente / confidenciales: NUNCA se versionan ===
+# Carpeta local para grabaciones, transcripciones y cualquier dato real
+_privado/
+
+# Descomenta si el proyecto maneja grabaciones de reuniones (GitHub bloquea archivos >100 MB):
+# *.mp4
+# *.mkv
+# *.mov
+# *.webm
+# *.wav
+# *.mp3
+# *.m4a
+# *.flac
+
+# PDF fuente de contenido: trae capturas con datos reales de clientes
+Portafolio-Automatizaciones-Donovan.pdf
+
+# environment variables / secretos
+.env
+.env.*
+.dev.vars
+.wrangler/
+
+# dependencies / build
+node_modules/
+dist/
+.next/
+.open-next/
+.content-collections/
+.vinext/
+next-env.d.ts
+.astro/
+.venv/
+__pycache__/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# sistema / editores
+.DS_Store
+.idea/
+.vscode/
+
+# Overrides personales de Claude Code (permisos/hooks propios, no del proyecto)
+.claude/settings.local.json
+
+# Mockups temporales de superpowers
+.superpowers/

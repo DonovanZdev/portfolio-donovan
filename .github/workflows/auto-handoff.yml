@@ -1,0 +1,65 @@
+name: Auto-update HANDOFF.md
+
+# Se dispara en cada push a main, EXCEPTO si el push es del bot mismo
+# o si solo tocó docs (para no entrar en loop infinito).
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - 'HANDOFF.md'
+      - 'TRAMPAS.md'
+      - 'CLAUDE.md'
+      # **/*.md matchea cualquier nivel de profundidad (vs '*.md' que solo
+      # matchea root). Así no triggeamos por cambios a docs anidados.
+      - '**/*.md'
+
+# Garantiza que solo corra una instancia a la vez. Si hay 2 pushes
+# seguidos, cancela el anterior y procesa solo el más reciente.
+concurrency:
+  group: auto-handoff
+  cancel-in-progress: true
+
+jobs:
+  update-handoff:
+    # Skip si el último commit ya fue del bot (defensa adicional anti-loop)
+    if: "!contains(github.event.head_commit.message, '[skip handoff]')"
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # 0 = full history. Lo necesitamos porque el script busca el
+          # último commit del bot (`[skip handoff]`) y puede estar muy
+          # lejos del HEAD. Con fetch-depth: 30 el rev-list de fallback
+          # devolvía múltiples SHAs (commits del borde de un clone shallow
+          # aparecen como roots), lo que rompía la interpolación en execSync.
+          fetch-depth: 0
+          # Usar PAT si quieres que dispare otros workflows; con GITHUB_TOKEN
+          # alcanza para commits normales.
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Update HANDOFF.md via Z.AI (GLM-4.7-Flash)
+        env:
+          ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
+        run: node scripts/auto-handoff.mjs
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet HANDOFF.md; then
+            echo "HANDOFF.md sin cambios — skip commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add HANDOFF.md
+          git commit -m "docs(auto): refresh HANDOFF.md desde último push [skip handoff]"
+          git push
