@@ -2,17 +2,18 @@
 
 ## En una línea
 
-Proyecto personal de Donovan Zuñiga (desarrollador y dueño del sitio): su portafolio web sobre el template Portfolio de Magic UI, para publicarlo en Cloudflare Workers. Contenido de Donovan ya cargado (hero, sobre mí, stack, 5 casos, contacto y 5 artículos en español); compila como export estático (18 páginas, probado con `wrangler dev` en escritorio y celular). Desplegado en https://portfolio-donovan.pages.dev.
+Proyecto personal de Donovan Zuñiga desplegado en Cloudflare Pages (https://portfolio-donovan.pages.dev) usando export estático de Next.js. Se probó Workers pero se cambió a Pages por restricción de subdominios; todo el contenido (hero, sobre mí, 5 casos, 5 artículos, contacto) está en español y verificado en escritorio y móvil.
 
 ## Qué se hizo recientemente
 
 - Bootstrap del proyecto desde el template del skill `new-project` (commit `28c322a`).
 - Repo público creado y primer push a `main` hecho; secret `ZAI_API_KEY` puesto y bot de auto-handoff verificado (✅ en el log).
-- Decisión de hosting: Cloudflare **Workers con Static Assets** (no Pages). Se probó vinext y se descartó: `/blog/[slug]` daba 500 en Workers por `useMDXComponent` (usa `new Function`); ver `TRAMPAS.md`. Cuenta de Cloudflare con login en `wrangler` (una sola cuenta).
+- Decisión de hosting: Cloudflare **Pages con Static Assets** (no Workers). Se probó vinext y se descartó: `/blog/[slug]` daba 500 en Workers por `useMDXComponent` (usa `new Function`); ver `TRAMPAS.md`.
 - Template `dillionverma/portfolio@5ef12e4` importado (commit `6500c12`) con Next 16.2.12 y React 19.2.8 (parches de seguridad de mayo 2026).
 - Sitio convertido a export estático: `output: "export"`, headers en `public/_headers`, paginación del blog por ruta (`/blog/page/N`), imágenes OG estáticas con fuentes leídas de disco, `wrangler.jsonc` solo con `assets` (`./out`). Verificado: build con 0, 3 y 7 posts, `wrangler dev` con todas las rutas en 200, `tsc` y `eslint` limpios.
-
 - Contenido de Donovan cargado: foto (recorte sin EXIF), textos en español, cifras del PDF, stack, 5 casos con enlace a su artículo, contacto por WhatsApp y correo. Blog: 7 posts de ejemplo reemplazados por 5 artículos (borradores hechos solo con lo que dice el PDF). Se quitaron Work, Education y Hackathons (el PDF no trae esos datos). Imágenes OG con avatar embebido.
+- <code>1494355</code> docs: quitar commits crudos que pegó el bot en HANDOFF
+- <code>9317000</code> feat: desplegar a Cloudflare Pages (portfolio-donovan.pages.dev). En Workers la URL lleva el subdominio de la cuenta (donovanadrianpro) y no se puede renombrar; Pages da una URL corta. wrangler.jsonc pasa a pages_build_output_dir y los scripts usan wrangler pages.
 
 ## Trabajo en progreso (sin commitear)
 
